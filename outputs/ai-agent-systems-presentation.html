@@ -188,6 +188,7 @@
     .pill.green { background: var(--green-100); color: var(--green-800); }
     .pill.purple { background: var(--purple-100); color: var(--purple-800); }
     .pill.yellow { background: var(--yellow-100); color: var(--yellow-800); }
+    .mobile-summary { display: none; }
     .icon { width: 22px; height: 22px; display: inline-block; flex: 0 0 auto; }
     .icon svg { width: 100%; height: 100%; }
 
@@ -485,6 +486,194 @@
       .nav button { padding: 9px 11px; }
     }
 
+    /* Mobile presentation mode: one viewport, one active slide, no page scroll. */
+    @media screen and (max-width: 600px) {
+      html, body { width: 100%; height: 100%; min-height: 100%; overflow: hidden; }
+      body { background: #fff; }
+      .app { width: 100%; height: 100dvh; min-height: 100dvh; padding: 0; display: block; overflow: hidden; }
+      .topbar { position: fixed; inset: env(safe-area-inset-top) 0 auto; z-index: 25; width: auto; padding: 8px 12px; justify-content: flex-end; pointer-events: none; }
+      .brand { display: none; }
+      .top-actions { pointer-events: auto; gap: 6px; }
+      .top-actions button { width: 36px; height: 36px; padding: 0; display: grid; place-items: center; border-radius: 11px; font-size: 0; background: rgba(255,255,255,.92); box-shadow: 0 3px 12px rgba(15,23,42,.1); }
+      .top-actions button .ltr { display: none; }
+      #notesToggle::before { content: "☰"; font-size: 17px; }
+      #fullscreenToggle::before { content: "⛶"; font-size: 20px; line-height: 1; }
+      .deck-shell { width: 100%; height: 100dvh; min-height: 0; border-radius: 0; box-shadow: none; overflow: hidden; }
+      .slide { width: 100%; height: 100dvh; min-height: 0; aspect-ratio: auto; padding: 56px 20px calc(76px + env(safe-area-inset-bottom)); overflow: hidden; }
+      .slide::before, .slide::after { display: none; }
+      .slide.active { display: flex !important; flex-direction: column; animation: none; }
+      .eyebrow { font-size: 10px; gap: 5px; margin-bottom: 7px; }
+      .eyebrow::before { width: 18px; height: 2px; }
+      h1 { font-size: clamp(29px, 8vw, 38px); line-height: 1.05; }
+      h2 { font-size: clamp(23px, 7vw, 31px); line-height: 1.08; }
+      .lede { margin-top: 10px; font-size: 13px; line-height: 1.35; }
+
+      .hero { padding-top: 72px; }
+      .hero-content { max-width: none; }
+      .hero-sub { margin-top: 14px; font-size: 14px; line-height: 1.45; }
+      .hero-callout { margin-top: 15px; padding: 9px 10px; gap: 6px; font-size: 11px; line-height: 1.3; }
+      .timeline { margin-top: auto; padding: 14px 0 0; grid-template-columns: repeat(3, 1fr); gap: 6px; }
+      .timeline::before { top: 29px; left: 11%; right: 11%; }
+      .time-node { gap: 5px; }
+      .time-dot { width: 30px; height: 30px; font-size: 10px; }
+      .time-node strong { font-size: 10px; line-height: 1.2; }
+      .time-node span { display: none; }
+
+      .vocab-grid { margin-top: 15px; grid-template-columns: repeat(2, 1fr); gap: 8px; }
+      .vocab { min-height: 0; padding: 10px; border-top-width: 3px; }
+      .vocab h3 { font-size: 14px; margin-bottom: 4px; }
+      .vocab strong { font-size: 12px; margin-bottom: 0; }
+      .vocab p, .vocab .micro { display: none; }
+      .vocab:nth-child(5) { grid-column: 1 / -1; }
+      .layer-bar { margin-top: 10px; gap: 6px; }
+      .layer { padding: 8px 5px; font-size: 10px; }
+
+      .two-col, .two-col.reverse { height: auto; grid-template-columns: 1fr; gap: 11px; align-items: start; }
+      .riddle-intro { margin-top: 8px; font-size: 12px; line-height: 1.35; display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 3; overflow: hidden; }
+      .video-card { margin-top: 9px; padding: 8px 10px; gap: 8px; font-size: 11px; }
+      .video-card small { font-size: 9px; }
+      .play { width: 28px; height: 28px; font-size: 12px; }
+      .riddle-board { margin-top: 0; gap: 7px; }
+      .riddle-card { padding: 9px 10px; }
+      .riddle-tag { padding: 3px 6px; margin-bottom: 4px; font-size: 9px; }
+      .riddle-story { font-size: 11px; line-height: 1.3; display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 3; overflow: hidden; }
+      .riddle-answer { margin-top: 5px; padding-top: 5px; font-size: 10px; }
+      .riddle-takeaway { margin-top: 7px; padding: 8px 9px; font-size: 10px; line-height: 1.3; }
+
+      .grocery { height: 165px; padding: 10px; border-radius: 14px; }
+      .signs { gap: 4px; }
+      .sign { padding: 5px 5px; font-size: 9px; }
+      .shelf { left: 10px; right: 10px; top: 49px; gap: 5px; }
+      .product { height: 67px; border-radius: 8px; font-size: 9px; }
+      .product .emoji { font-size: 21px; }
+      .query-bubble { right: 10px; bottom: 10px; padding: 7px 9px; font-size: 10px; }
+      .attention-flow { margin-top: 13px !important; gap: 5px; }
+      .flow-row { grid-template-columns: 60px 1fr; gap: 8px; }
+      .flow-token { padding: 7px 5px; font-size: 10px; }
+      .flow-copy { font-size: 10px; line-height: 1.25; }
+      .flow-copy b { font-size: 10px; }
+      .mini-arrow { font-size: 13px; }
+
+      .prompt-rail { margin-top: 14px; padding: 7px; grid-template-columns: 1fr 16px 1fr 16px 1fr; gap: 3px; }
+      .rail-block { min-height: 68px; padding: 9px 6px; }
+      .rail-block strong { font-size: 11px; margin-bottom: 3px; }
+      .rail-block p { font-size: 9px; line-height: 1.25; }
+      .rail-arrow { font-size: 14px; }
+      .tool-grid { margin-top: 10px; grid-template-columns: repeat(2, 1fr); gap: 8px; }
+      .tool-card { min-height: 0; padding: 10px; }
+      .tool-card .num { font-size: 9px; }
+      .tool-card h3 { margin: 4px 0 0; font-size: 12px; }
+      .tool-card p { display: none; }
+
+      .matrix, .model-footnote, .alert { display: none; }
+      .mobile-models { display: grid; gap: 8px; margin-top: 16px; }
+      .mobile-compare-card { padding: 12px; border-radius: 12px; border: 1px solid; display: grid; gap: 4px; font-size: 11px; }
+      .mobile-compare-card strong { font-size: 13px; }
+      .mobile-compare-card span, .mobile-compare-card small { color: #64748b; line-height: 1.3; }
+      .mobile-compare-card.reasoning { background: var(--purple-50); border-color: var(--purple-200); }
+      .mobile-compare-card.chat { background: #f8fafc; border-color: #e2e8f0; }
+      .mobile-inline-alert { padding: 10px 11px; border-radius: 10px; background: #fff7ed; border: 1px solid #fed7aa; color: #9a3412; font-size: 11px; line-height: 1.35; }
+
+      .rule-grid { margin-top: 15px; grid-template-columns: repeat(2, 1fr); gap: 8px; }
+      .rule { min-height: 0; padding: 10px; border-right-width: 3px; }
+      .rule .rule-num { width: 22px; height: 22px; margin-bottom: 7px; font-size: 9px; }
+      .rule h3 { font-size: 13px; margin-bottom: 4px; }
+      .rule p { font-size: 10px; line-height: 1.32; }
+      .rule-quote { margin-top: 10px; font-size: 13px; line-height: 1.25; }
+
+      .maturity, .context-stack { display: none; }
+      .mobile-context-flow { display: grid; gap: 7px; margin-top: 16px; }
+      .mobile-flow-step { padding: 12px; border-radius: 12px; display: grid; gap: 3px; border: 1px solid; }
+      .mobile-flow-step b { font-size: 15px; direction: ltr; text-align: left; }
+      .mobile-flow-step span { font-size: 11px; color: #64748b; }
+      .mobile-flow-step.prompt { background: var(--blue-50); border-color: var(--blue-200); }
+      .mobile-flow-step.context { background: var(--purple-50); border-color: var(--purple-200); }
+      .mobile-flow-arrow { text-align: center; color: #94a3b8; font-size: 17px; line-height: 1; }
+      .mobile-chip-row { display: flex; flex-wrap: wrap; gap: 5px; justify-content: center; }
+      .mobile-chip-row span { padding: 5px 7px; border-radius: 999px; background: #f8fafc; border: 1px solid #e2e8f0; color: #475569; font-size: 9px; }
+
+      .skill-layout { margin-top: 13px; grid-template-columns: 1fr; gap: 9px; }
+      .skill-file { max-height: 172px; }
+      pre { padding: 11px; font-size: 9px; line-height: 1.4; }
+      .skill-points { grid-template-columns: repeat(3, 1fr); gap: 6px; }
+      .skill-point { display: block; padding: 8px 6px; text-align: center; }
+      .skill-point .sp-icon { width: 27px; height: 27px; margin: 0 auto 5px; border-radius: 8px; }
+      .skill-point h3 { font-size: 10px; line-height: 1.15; }
+      .skill-point p { display: none; }
+
+      .mcp-board, .mcp-security, .primitive-row, .mcp-callout { display: none; }
+      .mobile-mcp-flow { display: grid; gap: 6px; margin-top: 15px; }
+      .mobile-mcp-node { padding: 10px; border-radius: 11px; border: 1px solid; display: grid; gap: 3px; text-align: center; }
+      .mobile-mcp-node b { font-size: 13px; direction: ltr; }
+      .mobile-mcp-node span { font-size: 10px; color: #64748b; }
+      .mobile-mcp-node.client { background: var(--blue-50); border-color: var(--blue-200); }
+      .mobile-mcp-node.server { background: var(--green-50); border-color: var(--green-200); }
+      .mobile-mcp-node.data { background: var(--yellow-50); border-color: var(--yellow-200); }
+      .mobile-security { padding: 7px 9px; text-align: center; border-radius: 9px; background: #f8fafc; border: 1px solid #e2e8f0; color: #64748b; font-size: 10px; }
+
+      .overhead { display: none; }
+      .mobile-overhead-summary { display: grid; grid-template-columns: repeat(3, 1fr); gap: 7px; margin-top: 15px; }
+      .mobile-layer-card { padding: 11px 7px; border-radius: 11px; display: grid; gap: 4px; text-align: center; border: 1px solid; }
+      .mobile-layer-card b { font-size: 13px; direction: ltr; }
+      .mobile-layer-card span { color: #64748b; font-size: 9px; line-height: 1.25; }
+      .mobile-layer-card.cli { background: #f8fafc; border-color: #e2e8f0; }
+      .mobile-layer-card.mcp { background: var(--green-50); border-color: var(--green-200); }
+      .mobile-layer-card.skill { background: var(--purple-50); border-color: var(--purple-200); }
+      .mobile-token-note { grid-column: 1 / -1; padding: 10px; border-radius: 10px; background: #fff7ed; border: 1px solid #fed7aa; color: #9a3412; display: flex; justify-content: space-between; gap: 8px; font-size: 10px; }
+      .mobile-token-note span { color: #7c2d12; }
+
+      .past-present-future { margin-top: 12px; grid-template-columns: repeat(3, 1fr); gap: 5px; }
+      .ppf-step { padding: 8px 4px; font-size: 10px; }
+      .final-grid { margin-top: 14px; grid-template-columns: repeat(2, 1fr); gap: 7px; }
+      .pillar { min-height: 0; padding: 10px; border-top-width: 3px; }
+      .pillar .big { font-size: 16px; }
+      .pillar h3 { margin: 5px 0 3px; font-size: 13px; }
+      .pillar p { font-size: 10px; line-height: 1.3; }
+      .final-message { margin-top: 10px; padding: 10px 11px; display: block; }
+      .final-message strong { font-size: 13px; }
+      .final-message span { font-size: 10px; line-height: 1.35; }
+      .final-message .pill { display: none; }
+
+      .progress { display: none; }
+      .nav { position: fixed; inset: auto 0 env(safe-area-inset-bottom); z-index: 25; width: auto; height: 58px; padding: 6px 14px; grid-template-columns: 1fr auto 1fr; grid-template-areas: "next counter prev"; gap: 10px; pointer-events: none; }
+      .nav button { width: 42px; height: 42px; padding: 0; display: grid; place-items: center; font-size: 0; border-radius: 12px; pointer-events: auto; box-shadow: 0 3px 12px rgba(15,23,42,.1); }
+      .nav button.primary { justify-self: start; }
+      .nav button.secondary { justify-self: end; }
+      #nextBtn::before { content: "←"; font-size: 22px; }
+      #prevBtn::before { content: "→"; font-size: 22px; }
+      .counter { font-size: 12px; }
+      .notes-panel { z-index: 30; }
+      .notes-inner { max-height: 58vh; padding: 14px 16px 18px; }
+      .notes-body { font-size: 12px; line-height: 1.55; }
+    }
+
+    @media screen and (max-width: 600px) and (orientation: landscape) {
+      .topbar { padding: 5px 10px; }
+      .top-actions button { width: 30px; height: 30px; }
+      .slide { padding: 42px 22px calc(56px + env(safe-area-inset-bottom)); }
+      .hero { padding-top: 47px; }
+      .hero h1 { font-size: 25px; }
+      .hero-sub, .hero-callout { display: none; }
+      .timeline { padding-top: 8px; }
+      h2 { font-size: 22px; }
+      .lede { display: none; }
+      .two-col { grid-template-columns: 1fr 1fr; gap: 14px; }
+      .grocery { height: 145px; }
+      .shelf { top: 42px; }
+      .product { height: 57px; }
+      .riddle-intro { -webkit-line-clamp: 2; }
+      .riddle-card { padding: 7px 8px; }
+      .riddle-story { -webkit-line-clamp: 2; }
+      .riddle-takeaway { margin-top: 5px; }
+      .skill-layout { grid-template-columns: 1fr 1fr; align-items: start; }
+      .skill-file { max-height: 145px; }
+      .mobile-context-flow, .mobile-mcp-flow, .mobile-overhead-summary, .mobile-models { margin-top: 9px; }
+      .mobile-flow-step, .mobile-mcp-node, .mobile-compare-card, .mobile-layer-card { padding: 7px; }
+      .rule-grid, .tool-grid, .final-grid { margin-top: 9px; }
+      .nav { height: 48px; }
+      .nav button { width: 36px; height: 36px; }
+    }
+
     @media print {
       body { background: white; }
       .app { padding: 0; display: block; }
@@ -499,8 +688,8 @@
     <header class="topbar">
       <div class="brand"><span class="brand-mark">✦</span><span>AI in Three Simple Steps</span></div>
       <div class="top-actions">
-        <button id="notesToggle" type="button" aria-expanded="false">הערות דובר <span class="ltr">N</span></button>
-        <button id="fullscreenToggle" type="button">מסך מלא <span class="ltr">F</span></button>
+        <button id="notesToggle" type="button" aria-expanded="false" aria-label="הערות דובר">הערות דובר <span class="ltr">N</span></button>
+        <button id="fullscreenToggle" type="button" aria-label="מסך מלא">מסך מלא <span class="ltr">F</span></button>
       </div>
     </header>
 
@@ -604,6 +793,11 @@
         </div>
         <p class="model-footnote">דוגמאות נכונות ל־10.08.2026; שמות וממשקים משתנים.</p>
         <div class="alert"><span class="icon">!</span><div><strong>היפוך פרומפטים</strong><p>בקשה כמו “חשוב בקול שלב־אחר־שלב” או פיגומים קשיחים עלולה להתנגש עם מנגנון החשיבה הפנימי של מודלי Reasoning.</p></div></div>
+        <div class="mobile-summary mobile-models" aria-label="השוואה בין מודלי צ׳אט למודלי חשיבה">
+          <div class="mobile-compare-card chat"><strong>מודלי צ׳אט</strong><span>מהירים: כתיבה, תרגום וסיכום</span></div>
+          <div class="mobile-compare-card reasoning"><strong>מודלי חשיבה</strong><span class="ltr">GPT-5.1 · Claude Opus 4.1 · Gemini 3.1 Pro · DeepSeek-V4-Pro</span><small>תכנון, לוגיקה וקוד רב־שלבי</small></div>
+          <div class="mobile-inline-alert"><b>כלל חדש:</b> ניסוח ישיר; בלי “חשוב בקול”.</div>
+        </div>
       </article>
 
       <!-- 7 -->
@@ -631,6 +825,12 @@
           <div class="maturity-card context"><div class="micro-label">שלב תפעולי</div><h3>Context Engineering</h3><p>“איזה מידע, הרשאה וכלי צריכים להיות זמינים עכשיו?”</p><ul><li>נתונים ומדיניות מנוהלים מחוץ לפרומפט</li><li>RAG, GraphRAG, הרשאות וזהויות</li><li>הסוכן מקבל את ההקשר הרלוונטי בזמן אמת</li></ul></div>
         </div>
         <div class="context-stack"><div class="context-source"><span>▤</span>מסמכים</div><div class="context-source"><span>⌘</span>מסדי נתונים</div><div class="context-source"><span>◈</span>גרף ידע</div><div class="context-source"><span>✓</span>הרשאות</div></div>
+        <div class="mobile-summary mobile-context-flow" aria-label="המעבר מפרומפט להנדסת הקשר">
+          <div class="mobile-flow-step prompt"><b>Prompt</b><span>שיחה נקודתית</span></div>
+          <div class="mobile-flow-arrow">↓</div>
+          <div class="mobile-flow-step context"><b>Context</b><span>מידע, הרשאות וכלים בזמן אמת</span></div>
+          <div class="mobile-chip-row"><span>מסמכים</span><span>מסדי נתונים</span><span>גרף ידע</span><span>הרשאות</span></div>
+        </div>
       </article>
 
       <!-- 9 -->
@@ -674,6 +874,15 @@
         <div class="mcp-security"><span class="ltr">OAuth 2.1 · Stateless</span> · שכבת האימות וההפעלה הנפרדת מהנתונים</div>
         <div class="primitive-row"><div class="primitive"><strong>Tools</strong><span>פעולות ביצוע: שאילתה, כתיבה, שליחה.</span></div><div class="primitive"><strong>Resources</strong><span>מקורות לקריאה: מסמכים, רשומות ומידע.</span></div><div class="primitive"><strong>Prompts</strong><span>תבניות שיחה מוכנות לשימוש.</span></div></div>
         <div class="mcp-callout"><b>FastMCP:</b> דקורטור פשוט כמו <span class="ltr">@mcp.tool</span> יכול להפוך פונקציה קיימת לכלי עם סכמת JSON ודוקומנטציה שהסוכן יודע לקרוא.</div>
+        <div class="mobile-summary mobile-mcp-flow" aria-label="זרימת MCP במובייל">
+          <div class="mobile-mcp-node client"><b>Host / Agent</b><span>מבין את המשימה ובוחר כלי</span></div>
+          <div class="mobile-flow-arrow">↓</div>
+          <div class="mobile-mcp-node server"><b>MCP Server</b><span>מייצא Tools, Resources ו־Prompts</span></div>
+          <div class="mobile-flow-arrow">↓</div>
+          <div class="mobile-mcp-node data"><b>מערכות ארגוניות</b><span>CRM · SQL · Drive · APIs</span></div>
+          <div class="mobile-security"><span class="ltr">OAuth 2.1 · Stateless</span></div>
+          <div class="mobile-chip-row"><span>Tools</span><span>Resources</span><span>Prompts</span></div>
+        </div>
       </article>
 
       <!-- 11 -->
@@ -688,6 +897,12 @@
             <div class="stack-row"><div class="stack-label skill">Skills</div><div class="stack-desc"><b>ניתוב חכם</b><br>בוחר רק את הכלים הרלוונטיים לסיטואציה הנוכחית.</div></div>
           </div>
           <div class="meter-card"><div class="meter-title">לפני: כל הכלים נחשפים</div><div class="meter"><div class="meter-fill"></div></div><div class="meter-values"><span>0</span><span>32k+ tokens</span></div><p>שרת MCP כבד עלול לזרוק למודל אלפי אסימונים של הגדרות לכלים לא נחוצים — עוד לפני השאלה הראשונה.</p><div class="solution"><b>אחרי: Skill כנתב</b> טוענים רק את קבוצת הכלים הנדרשת למשימה.</div></div>
+        </div>
+        <div class="mobile-summary mobile-overhead-summary" aria-label="השוואת שכבות וכלים">
+          <div class="mobile-layer-card cli"><b>CLI</b><span>גישה ישירה ומהירה</span></div>
+          <div class="mobile-layer-card mcp"><b>MCP</b><span>חיבור והרשאות</span></div>
+          <div class="mobile-layer-card skill"><b>Skills</b><span>ניתוב חכם לכלים הרלוונטיים</span></div>
+          <div class="mobile-token-note"><b>Token Bloat ↓</b><span>טוענים רק את הכלים הדרושים למשימה.</span></div>
         </div>
       </article>
 
@@ -709,9 +924,9 @@
 
     <div class="progress" aria-hidden="true"><span id="progressBar"></span></div>
     <nav class="nav" aria-label="ניווט במצגת">
-      <button class="primary" id="nextBtn" type="button">הבא <span class="ltr">←</span></button>
+      <button class="primary" id="nextBtn" type="button" aria-label="הבא">הבא <span class="ltr">←</span></button>
       <div class="counter" id="counter">01 / 12</div>
-      <button class="secondary" id="prevBtn" type="button"><span class="ltr">→</span> הקודם</button>
+      <button class="secondary" id="prevBtn" type="button" aria-label="הקודם"><span class="ltr">→</span> הקודם</button>
     </nav>
   </main>
 
