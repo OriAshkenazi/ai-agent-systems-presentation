@@ -26,6 +26,8 @@ jobs:
 
       - name: Configure GitHub Pages
         uses: actions/configure-pages@v5
+        with:
+          enablement: true
 
       - name: Prepare entry page
         run: cp outputs/ai-agent-systems-presentation.html outputs/index.html
