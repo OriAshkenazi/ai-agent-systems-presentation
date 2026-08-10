@@ -754,7 +754,12 @@
       prevBtn.disabled = index === 0;
       nextBtn.disabled = index === slides.length - 1;
       updateNotes();
-      history.replaceState(null, '', `#slide-${index + 1}`);
+      try {
+        history.replaceState(null, '', `#slide-${index + 1}`);
+      } catch (error) {
+        // Some browsers block History API updates for local file:// documents.
+        // The slide state is already rendered, so navigation remains usable.
+      }
     }
     function setSlide(next) {
       index = Math.max(0, Math.min(slides.length - 1, next));
@@ -771,8 +776,8 @@
       notesPanel.setAttribute('aria-hidden', String(!shouldOpen));
       notesToggle.setAttribute('aria-expanded', String(shouldOpen));
     }
-    nextBtn.addEventListener('click', () => setSlide(index + 1));
-    prevBtn.addEventListener('click', () => setSlide(index - 1));
+    nextBtn.addEventListener('click', (event) => { event.preventDefault(); setSlide(index + 1); });
+    prevBtn.addEventListener('click', (event) => { event.preventDefault(); setSlide(index - 1); });
     notesToggle.addEventListener('click', () => toggleNotes());
     document.getElementById('notesClose').addEventListener('click', () => toggleNotes(false));
     document.getElementById('fullscreenToggle').addEventListener('click', () => {
