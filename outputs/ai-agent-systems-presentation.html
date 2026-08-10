@@ -190,15 +190,15 @@
     .icon svg { width: 100%; height: 100%; }
 
     /* Slide 1 */
-    .hero { background: linear-gradient(135deg, #eff6ff 0%, #eef2ff 55%, #ffffff 100%); }
+    .hero { background: linear-gradient(135deg, #eff6ff 0%, #eef2ff 55%, #ffffff 100%); display: flex; flex-direction: column; }
     .hero .orb { position: absolute; border-radius: 50%; filter: blur(2px); opacity: .52; pointer-events: none; }
     .hero .orb.one { width: 220px; height: 220px; background: #dbeafe; top: -92px; left: -72px; }
     .hero .orb.two { width: 300px; height: 300px; background: #e0e7ff; bottom: -160px; right: -100px; }
     .hero-content { position: relative; z-index: 1; max-width: 880px; }
     .hero-sub { margin-top: 24px; max-width: 630px; font-size: 18px; color: #475569; line-height: 1.6; }
-    .timeline { position: absolute; z-index: 1; left: 7%; right: 7%; bottom: 48px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 26px; }
-    .timeline::before { content: ""; position: absolute; top: 16px; left: 6%; right: 6%; height: 2px; background: #bfdbfe; }
-    .time-node { position: relative; display: flex; gap: 11px; align-items: flex-start; }
+    .timeline { position: relative; z-index: 1; width: 100%; margin-top: auto; padding: 20px 3% 0; display: grid; grid-template-columns: repeat(3, 1fr); gap: 26px; }
+    .timeline::before { content: ""; position: absolute; top: 36px; left: 8%; right: 8%; height: 2px; background: #bfdbfe; z-index: 0; }
+    .time-node { position: relative; z-index: 1; display: grid; grid-template-rows: auto auto; justify-items: center; gap: 7px; text-align: center; }
     .time-dot { width: 34px; height: 34px; border-radius: 50%; display: grid; place-items: center; background: white; color: var(--blue-700); border: 2px solid var(--blue-400, #60a5fa); z-index: 1; box-shadow: 0 3px 10px rgba(37,99,235,.14); font-size: 12px; font-weight: 800; direction: ltr; }
     .time-node strong { display: block; font-size: 15px; color: #1e3a8a; margin-top: 4px; }
     .time-node span { display: block; color: var(--muted); font-size: 12px; margin-top: 2px; }
@@ -243,10 +243,19 @@
     .layer.green { background: var(--green-100); color: var(--green-800); }
 
     /* Slide 3 */
-    .quote-card { padding: 28px 28px 24px; background: linear-gradient(135deg, #f8fafc, #eef2ff); border: 1px solid #e0e7ff; border-radius: 18px; position: relative; }
-    .quote-card::before { content: "“"; position: absolute; left: 22px; top: 4px; font-size: 82px; color: #c7d2fe; line-height: 1; font-family: Georgia, serif; }
-    .quote { font-size: clamp(24px, 3.2vw, 42px); line-height: 1.1; color: var(--indigo-dark); font-weight: 700; letter-spacing: -.04em; max-width: 630px; }
-    .quote-source { margin-top: 16px; color: #64748b; font-size: 13px; }
+    .riddle-intro { margin-top: 16px; color: #475569; font-size: 14px; line-height: 1.55; }
+    .riddle-board { display: grid; gap: 12px; margin-top: 18px; }
+    .riddle-card { padding: 16px 17px; border-radius: 14px; border: 1px solid; }
+    .riddle-card.classic { background: var(--blue-50); border-color: var(--blue-200); }
+    .riddle-card.variant { background: #fff7ed; border-color: #fed7aa; }
+    .riddle-tag { display: inline-flex; padding: 4px 8px; border-radius: 999px; font-size: 11px; font-weight: 800; margin-bottom: 8px; }
+    .classic .riddle-tag { color: var(--blue-800); background: var(--blue-100); }
+    .variant .riddle-tag { color: #9a3412; background: #ffedd5; }
+    .riddle-story { color: #334155; font-size: 13px; line-height: 1.5; }
+    .riddle-answer { margin-top: 9px; padding-top: 9px; border-top: 1px dashed currentColor; font-size: 12px; font-weight: 700; }
+    .classic .riddle-answer { color: var(--blue-800); }
+    .variant .riddle-answer { color: #9a3412; }
+    .riddle-takeaway { margin-top: 14px; padding: 13px 15px; background: var(--yellow-50); border-right: 4px solid var(--yellow-500); border-radius: 10px; color: var(--yellow-800); font-size: 13px; line-height: 1.5; }
     .video-card { margin-top: 16px; display: flex; align-items: center; gap: 13px; padding: 13px 16px; border-radius: 12px; background: #111827; color: white; text-decoration: none; transition: .2s ease; }
     .video-card:hover { background: #1e293b; transform: translateY(-2px); }
     .play { width: 36px; height: 36px; border-radius: 50%; display: grid; place-items: center; background: #ef4444; }
@@ -306,6 +315,7 @@
     .matrix .rowhead { color: #64748b; font-weight: 700; background: #fbfdff; }
     .matrix .reasoning { background: var(--purple-50); color: var(--purple-800); }
     .matrix .chat { color: #475569; }
+    .model-footnote { margin-top: 9px; color: #94a3b8; font-size: 11px; }
     .alert { margin-top: 18px; display: flex; gap: 12px; align-items: flex-start; padding: 14px 16px; border-radius: 13px; background: #fff7ed; border: 1px solid #fed7aa; color: #9a3412; }
     .alert strong { display: block; margin-bottom: 4px; }
     .alert p { color: #9a3412; font-size: 13px; line-height: 1.45; }
@@ -363,20 +373,26 @@
     .skill-point.purple .sp-icon { background: var(--purple-100); color: var(--purple-700); }
 
     /* Slide 10 */
-    .mcp-board { margin-top: 22px; display: grid; grid-template-columns: 1fr 1.2fr 1fr; gap: 14px; align-items: center; }
+    .mcp-board { direction: ltr; margin-top: 22px; display: grid; grid-template-columns: 1fr 54px 1.2fr 54px 1fr; grid-template-areas: "data connector-left server connector-right client"; gap: 12px; align-items: center; }
     .mcp-node { padding: 18px 15px; border-radius: 16px; text-align: center; border: 1px solid; }
     .mcp-node h3 { font-size: 17px; margin-bottom: 6px; }
     .mcp-node p { color: #64748b; font-size: 12px; line-height: 1.45; }
     .mcp-node.client { background: var(--blue-50); border-color: var(--blue-200); }
     .mcp-node.server { background: var(--green-50); border-color: var(--green-200); }
     .mcp-node.data { background: var(--yellow-50); border-color: var(--yellow-200); }
-    .mcp-connector { display: flex; align-items: center; justify-content: center; gap: 7px; color: #64748b; font-size: 12px; }
+    .mcp-node.client { grid-area: client; }
+    .mcp-node.server { grid-area: server; }
+    .mcp-node.data { grid-area: data; }
+    .mcp-connector.connector-left { grid-area: connector-left; }
+    .mcp-connector.connector-right { grid-area: connector-right; }
+    .mcp-connector { display: flex; align-items: center; justify-content: center; gap: 7px; color: #64748b; font-size: 12px; direction: ltr; }
     .mcp-connector::before, .mcp-connector::after { content: ""; height: 2px; flex: 1; background: #cbd5e1; }
     .primitive-row { margin-top: 22px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 11px; }
     .primitive { padding: 14px; border-radius: 12px; background: #f8fafc; border: 1px solid #e2e8f0; }
     .primitive strong { display: block; color: #334155; font-size: 14px; margin-bottom: 4px; direction: ltr; text-align: left; }
     .primitive span { font-size: 12px; color: #64748b; }
     .mcp-callout { margin-top: 18px; padding: 12px 15px; border-radius: 11px; background: #eef2ff; border-right: 4px solid var(--indigo); color: var(--indigo-dark); font-size: 13px; line-height: 1.45; }
+    .mcp-security { margin-top: 14px; padding: 10px 13px; text-align: center; border-radius: 10px; background: #f8fafc; border: 1px solid #e2e8f0; color: #64748b; font-size: 12px; }
 
     /* Slide 11 */
     .overhead { margin-top: 27px; display: grid; grid-template-columns: 1.05fr .95fr; gap: 28px; align-items: center; }
@@ -409,6 +425,11 @@
     .final-message { margin-top: 23px; padding: 19px 22px; border-radius: 15px; color: white; background: linear-gradient(135deg, var(--indigo-dark), #4338ca); display: flex; align-items: center; justify-content: space-between; gap: 20px; }
     .final-message strong { font-size: 20px; }
     .final-message span { color: #c7d2fe; font-size: 13px; line-height: 1.5; }
+    .past-present-future { margin-top: 20px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 9px; }
+    .ppf-step { padding: 10px 12px; border-radius: 10px; font-size: 12px; font-weight: 700; text-align: center; }
+    .ppf-step.past { background: var(--blue-100); color: var(--blue-800); }
+    .ppf-step.present { background: var(--purple-100); color: var(--purple-800); }
+    .ppf-step.future { background: var(--yellow-100); color: var(--yellow-800); }
 
     /* Speaker notes */
     .notes-panel { position: fixed; inset: auto 0 0; z-index: 20; background: rgba(15, 23, 42, .96); color: #e2e8f0; transform: translateY(105%); transition: transform .25s ease; box-shadow: 0 -15px 40px rgba(15,23,42,.24); }
@@ -420,11 +441,12 @@
     .notes-body { color: #cbd5e1; font-size: 14px; line-height: 1.65; white-space: pre-line; }
 
     /* Navigation */
-    .nav { width: min(1120px, 100%); display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; gap: 15px; }
+    .nav { width: min(1120px, 100%); direction: ltr; display: grid; grid-template-columns: 1fr auto 1fr; grid-template-areas: "next counter prev"; align-items: center; gap: 15px; }
     .nav button { padding: 10px 17px; font-weight: 700; }
-    .nav button.primary { justify-self: start; color: white; background: var(--indigo); border-color: var(--indigo); }
+    .nav button.primary { grid-area: next; justify-self: start; color: white; background: var(--indigo); border-color: var(--indigo); }
     .nav button.primary:hover:not(:disabled) { background: #3730a3; color: white; }
-    .nav button.secondary { justify-self: end; }
+    .nav button.secondary { grid-area: prev; justify-self: end; }
+    .nav .counter { grid-area: counter; }
     .nav button:disabled { opacity: .4; cursor: not-allowed; }
     .counter { color: #64748b; font-size: 13px; direction: ltr; }
     .progress { width: min(1120px, 100%); height: 4px; border-radius: 99px; background: #e2e8f0; overflow: hidden; }
@@ -436,7 +458,7 @@
       .timeline { position: relative; left: auto; right: auto; bottom: auto; margin-top: 30px; }
       .hero { min-height: 680px; }
       .vocab-grid, .rule-grid, .final-grid { grid-template-columns: repeat(2, 1fr); }
-      .mcp-board { grid-template-columns: 1fr; }
+      .mcp-board { grid-template-columns: 1fr; grid-template-areas: "client" "connector-right" "server" "connector-left" "data"; }
       .mcp-connector { transform: rotate(90deg); }
     }
     @media (max-width: 560px) {
@@ -450,6 +472,10 @@
       .matrix .head { display: none; }
       .matrix > div:nth-last-child(-n+3) { border-bottom: 1px solid #e2e8f0; }
       .matrix > div:last-child { border-bottom: none; }
+      .timeline { grid-template-columns: 1fr; gap: 16px; padding-top: 0; }
+      .timeline::before { display: none; }
+      .time-node { grid-template-columns: 34px 1fr; grid-template-rows: auto; justify-items: start; text-align: right; }
+      .past-present-future { grid-template-columns: 1fr; }
       h1 { font-size: 42px; }
       h2 { font-size: 32px; }
       .topbar { font-size: 11px; }
@@ -509,19 +535,18 @@
       </article>
 
       <!-- 3 -->
-      <article class="slide" data-num="03 / 12" data-title="איך חול לומד לחשוב">
+      <article class="slide" data-num="03 / 12" data-title="דפוס מול הבנה">
         <div class="two-col">
           <div>
-            <div class="eyebrow">Training Sand to Think</div>
-            <div class="quote-card"><p class="quote">“הציביליזציה שלנו למדה להפוך חול לשבבי סיליקון, שבבי סיליקון לרשתות עצביות, ורשתות עצביות לבינות מלאכותיות.”</p><p class="quote-source">אדם בראון · הרצאה במכון פרימטר לפיזיקה תיאורטית</p></div>
-            <a class="video-card" href="https://youtu.be/Mw60FH5iflI?si=J5g9MY6P04URrkNJ&amp;t=2001" target="_blank" rel="noreferrer"><span class="play">▶</span><span><b>קטע מומלץ לצפייה</b><br><small>החל מ־<span class="ltr">33:21</span> · פתיחה ביוטיוב</small></span></a>
+            <div class="eyebrow">Training Sand to Think · <span class="ltr">33:31</span></div>
+            <h2>איך מזהים דפוס — ולא בהכרח הבנה?</h2>
+            <p class="riddle-intro">החידה הקלאסית קלה למודל כי הוא ראה אותה שוב ושוב. שינוי קטן בגרסה חושף אם הוא באמת עוקב אחרי הפרטים.</p>
+            <a class="video-card" href="https://youtu.be/Mw60FH5iflI?si=J5g9MY6P04URrkNJ&amp;t=2011" target="_blank" rel="noreferrer"><span class="play">▶</span><span><b>קטע מומלץ לצפייה</b><br><small>החל מ־<span class="ltr">33:31</span> · פתיחה ביוטיוב</small></span></a>
           </div>
-          <div>
-            <div class="compare">
-              <div class="compare-box human"><h3>המוח האנושי</h3><p><span class="ltr">86</span> מיליארד נוירונים<br>כ־<span class="ltr">100</span> טריליון סינפסות</p></div>
-              <div class="compare-box model"><h3>מודל שפה</h3><p>מרחב לטנטי רב־ממדי<br>קשרים וירטואליים דרך Attention</p></div>
-            </div>
-            <div class="insight"><b>התובנה:</b> לא סופרים רק “חיבורים”. ארכיטקטורת ה־Transformer מאפשרת לכל אסימון להתייחס לכל אסימון אחר בהקשר.</div>
+          <div class="riddle-board">
+            <div class="riddle-card classic"><span class="riddle-tag">הגרסה הקלאסית</span><p class="riddle-story">האב נהרג בתאונה. הילד מגיע לחדר ניתוח, והמנתח אומר: “אני לא יכול לנתח אותו — הוא הבן שלי”.</p><p class="riddle-answer">התשובה: המנתחת היא אמו.</p></div>
+            <div class="riddle-card variant"><span class="riddle-tag">הגרסה המשוכתבת</span><p class="riddle-story">האם נהרגה בתאונה. מצוין במפורש שהמנתח הוא אביו של הילד — ובכל זאת המודל עונה: “המנתחת היא אמו”.</p><p class="riddle-answer">כאן המודל “ננעל” על הגרסה המוכרת.</p></div>
+            <div class="riddle-takeaway"><b>התובנה:</b> הצלחה על חידה מוכרת אינה הוכחה להבנה. שינוי קטן בניסוח יכול לחשוף היצמדות לדפוס נפוץ מתוך נתוני האימון.</div>
           </div>
         </div>
       </article>
@@ -570,12 +595,13 @@
         <p class="lede">הבדל אחד משנה את כללי המשחק: יותר זמן חישוב לפני התשובה.</p>
         <div class="matrix">
           <div class="head">תכונה</div><div class="head chat">מודל צ׳אט מסורתי</div><div class="head reasoning">מודל חשיבה</div>
-          <div class="rowhead">דוגמאות</div><div class="chat"><span class="ltr">GPT-4o · Claude 3.5 · Llama 3</span></div><div class="reasoning"><span class="ltr">o1/o3 · DeepSeek-R1 · Claude 3.7</span></div>
+          <div class="rowhead">דוגמאות עדכניות</div><div class="chat">מודלי עבודה מהירים — ללא תקציב חשיבה ייעודי.</div><div class="reasoning"><span class="ltr">GPT-5.1 · Claude Opus 4.1 · Gemini 3.1 Pro · DeepSeek-V4-Pro</span></div>
           <div class="rowhead">יצירת תשובה</div><div class="chat">תגובה מהירה על בסיס חיזוי רציף.</div><div class="reasoning">השהיה ותקציב חשיבה פנימי לפני הפלט.</div>
           <div class="rowhead">חוזקות</div><div class="chat">כתיבה, תרגום, סיכום, תבניות.</div><div class="reasoning">לוגיקה, מתמטיקה, קוד ותכנון רב־שלבי.</div>
           <div class="rowhead">תגובה לפרומפט</div><div class="chat">מרוויח מפירוט, דוגמאות ופיגומים.</div><div class="reasoning">עלול להיפגע מהוראות חשיבה חיצוניות.</div>
         </div>
-        <div class="alert"><span class="icon">!</span><div><strong>Prompting Inversion</strong><p>“חשוב בקול שלב־אחר־שלב” או פיגומים קשיחים יכולים להתנגש עם מנגנון החשיבה הפנימי של מודלי Reasoning.</p></div></div>
+        <p class="model-footnote">דוגמאות נכונות ל־10.08.2026; שמות וממשקים משתנים.</p>
+        <div class="alert"><span class="icon">!</span><div><strong>היפוך פרומפטים</strong><p>בקשה כמו “חשוב בקול שלב־אחר־שלב” או פיגומים קשיחים עלולה להתנגש עם מנגנון החשיבה הפנימי של מודלי Reasoning.</p></div></div>
       </article>
 
       <!-- 7 -->
@@ -637,11 +663,13 @@
         <h2><span class="ltr">MCP</span>: הכבל האוניברסלי של ה־AI</h2>
         <p class="lede">במקום אינטגרציה ייעודית לכל מודל ולכל מערכת — שרת אחד שמדבר שפה תקנית.</p>
         <div class="mcp-board">
-          <div class="mcp-node client"><h3>Host / Agent</h3><p>מודל שמבין משימה, בוחר כלי ומבקש ביצוע.</p></div>
-          <div class="mcp-connector">JSON-RPC 2.0</div>
+          <div class="mcp-node data"><h3>העולם הארגוני</h3><p>CRM · SQL · Drive · APIs · קבצים</p></div>
+          <div class="mcp-connector connector-left">JSON-RPC 2.0</div>
           <div class="mcp-node server"><h3>MCP Server</h3><p>שכבת חיבור שמייצאת כלים, משאבים והרשאות.</p></div>
-          <div></div><div class="mcp-connector">OAuth 2.1 · Stateless</div><div class="mcp-node data"><h3>העולם הארגוני</h3><p>CRM · SQL · Drive · APIs · קבצים</p></div>
+          <div class="mcp-connector connector-right">JSON-RPC 2.0</div>
+          <div class="mcp-node client"><h3>Host / Agent</h3><p>מודל שמבין משימה, בוחר כלי ומבקש ביצוע.</p></div>
         </div>
+        <div class="mcp-security"><span class="ltr">OAuth 2.1 · Stateless</span> · שכבת האימות וההפעלה הנפרדת מהנתונים</div>
         <div class="primitive-row"><div class="primitive"><strong>Tools</strong><span>פעולות ביצוע: שאילתה, כתיבה, שליחה.</span></div><div class="primitive"><strong>Resources</strong><span>מקורות לקריאה: מסמכים, רשומות ומידע.</span></div><div class="primitive"><strong>Prompts</strong><span>תבניות שיחה מוכנות לשימוש.</span></div></div>
         <div class="mcp-callout"><b>FastMCP:</b> דקורטור פשוט כמו <span class="ltr">@mcp.tool</span> יכול להפוך פונקציה קיימת לכלי עם סכמת JSON ודוקומנטציה שהסוכן יודע לקרוא.</div>
       </article>
@@ -666,6 +694,7 @@
         <div class="eyebrow">המסר המרכזי</div>
         <h2>השליטה חוזרת אלינו</h2>
         <p class="lede">AI אמין יותר כשאנחנו מעצבים את הסביבה שבה הוא עובד — לא רק את המשפט שאיתו אנחנו פונים אליו.</p>
+        <div class="past-present-future" aria-label="חיבור לשקף 5"><div class="ppf-step past">עבר — הקשר</div><div class="ppf-step present">הווה — המשימה</div><div class="ppf-step future">עתיד — הפורמט</div></div>
         <div class="final-grid">
           <div class="pillar blue"><div class="big">01</div><h3>הקשר</h3><p>ספקו מידע ארגוני עדכני דרך Skills, RAG ושרתים מנוהלים.</p></div>
           <div class="pillar green"><div class="big">02</div><h3>תפקיד</h3><p>הגדירו אחריות, הרשאות וגבולות גזרה של הסוכן.</p></div>
@@ -678,9 +707,9 @@
 
     <div class="progress" aria-hidden="true"><span id="progressBar"></span></div>
     <nav class="nav" aria-label="ניווט במצגת">
-      <button class="primary" id="nextBtn" type="button">הבא <span class="ltr">→</span></button>
+      <button class="primary" id="nextBtn" type="button">הבא <span class="ltr">←</span></button>
       <div class="counter" id="counter">01 / 12</div>
-      <button class="secondary" id="prevBtn" type="button"><span class="ltr">←</span> הקודם</button>
+      <button class="secondary" id="prevBtn" type="button"><span class="ltr">→</span> הקודם</button>
     </nav>
   </main>
 
@@ -704,6 +733,9 @@
       `MCP הוא שכבת חיבור חזקה, אך כל סכמת כלי נוספת היא טקסט שהמודל צריך לעבד. Skills פועלים כנתבים ומצמצמים את החשיפה לכלים הרלוונטיים. התוצאה: פחות עלות, פחות רעש ופחות הזדמנויות לטעות.`,
       `סיימו בארבעת עמודי התווך: Context, Role, Method, Format. המטרה אינה להפוך כל עובד למהנדס תוכנה, אלא לתת לו שליטה על הסביבה, רמת האוטונומיה ואיכות התוצר.`,
     ];
+    notes[2] = `בקטע שמתחיל ב־33:31 המרצה משתמש בחידת המנתח כדי להראות את ההבדל בין תשובה שנשלפת מדפוס מוכר לבין הכללה אמיתית. בגרסה הקלאסית המודל עונה נכון שהמנתחת היא האם, מפני שהחידה הופיעה באימון פעמים רבות. כאשר מחליפים את ההורה שנהרג ומציינים שהמנתח הוא האב, המודל עדיין נצמד לתשובה הישנה. זו אינה חולשה מוחלטת, אלא חתימה של אופן האימון: המודל רגיש מאוד לדפוסים נפוצים ולשינויים קטנים בניסוח.`;
+    notes[5] = `הדוגמאות בשקף עודכנו לדור הנוכחי: GPT-5.1, Claude Opus 4.1, Gemini 3.1 Pro ו־DeepSeek-V4-Pro. יש להציג אותן כדוגמאות תלויות־תאריך, משום ששמות מודלים וממשקים משתנים. המסר החשוב נשאר: מודלי Reasoning מקצים זמן חישוב לפני הפלט, ולכן הוראות כמו “חשוב בקול שלב־אחר־שלב” עלולות להתנגש עם מנגנון החשיבה הפנימי שלהם.`;
+    notes[11] = `חברו את הסיום ישירות לשקף 5: עבר הוא ההקשר שממנו יוצאים, הווה הוא המשימה שעל הסוכן לבצע, ועתיד הוא הפורמט שבו התוצר צריך להגיע. יחד עם ארבעת העמודים Context, Role, Method, Format, זו מסגרת פשוטה שמאפשרת לכוון מערכת מורכבת בלי להפוך כל עובד למהנדס תוכנה.`;
     let index = 0;
     const counter = document.getElementById('counter');
     const progressBar = document.getElementById('progressBar');
