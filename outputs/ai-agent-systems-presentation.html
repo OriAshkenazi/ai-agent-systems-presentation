@@ -870,13 +870,13 @@
           <div>
             <div class="eyebrow">איך זה עובד באמת?</div>
             <h2>כמו אבא במכולת</h2>
-            <p class="lede">המודל לא קורא את כל העולם בבת אחת. הוא משקלל רלוונטיות: מה לחפש, איפה לחפש, ומה לקחת מהמדף.</p>
+            <p class="lede">המודל לא קורא את כל העולם בבת אחת. הוא מחשב התאמה, מנרמל משקלים, ואז מרכיב פלט מתוך ה־Values — לא “בוחר מדף”.</p>
             <div class="attention-flow" style="margin-top:22px">
               <div class="flow-row"><div class="flow-token blue">Query</div><div class="flow-copy"><b>“אני צריך משהו קראנצ׳י”</b><br>השאילתה שמייצגת את המושג הנוכחי.</div></div>
               <div class="mini-arrow">↓</div>
-              <div class="flow-row"><div class="flow-token green">Keys</div><div class="flow-copy"><b>שלטי המעברים</b><br>המודל מחשב Dot Product מול כל קטגוריה.</div></div>
+              <div class="flow-row"><div class="flow-token green">Keys</div><div class="flow-copy"><b>תגיות ההתאמה</b><br>שלטים, קטגוריות ותיאורים שהמודל משווה לשאילתה באמצעות Dot Product.</div></div>
               <div class="mini-arrow">↓</div>
-              <div class="flow-row"><div class="flow-token yellow">Values</div><div class="flow-copy"><b>המוצרים עצמם</b><br>Softmax נותן משקל גבוה למדף החטיפים.</div></div>
+              <div class="flow-row"><div class="flow-token yellow">Values</div><div class="flow-copy"><b>המוצרים עצמם</b><br>Softmax מנרמל את ציוני ההתאמה: בייגלה, פופקורן ותפוצ׳יפס יקבלו משקל גבוה; לעוגיות משקל נמוך יותר. סכום משוקלל של ה־Values מרכיב את הפלט.</div></div>
             </div>
           </div>
         </div>
