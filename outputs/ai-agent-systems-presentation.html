@@ -674,6 +674,53 @@
       .nav button { width: 36px; height: 36px; }
     }
 
+    /* Restore useful explanatory copy on mobile while keeping it compact. */
+    @media screen and (max-width: 600px) {
+      .vocab p { display: block; margin-top: 5px; font-size: 10px; line-height: 1.3; }
+      .vocab .micro { display: block; margin-top: 6px; font-size: 9px; }
+      .tool-card p { display: -webkit-box; margin-top: 5px; font-size: 10px; line-height: 1.3; -webkit-box-orient: vertical; -webkit-line-clamp: 3; overflow: hidden; }
+      .skill-point p { display: -webkit-box; font-size: 9px; line-height: 1.28; -webkit-box-orient: vertical; -webkit-line-clamp: 3; overflow: hidden; }
+      .riddle-intro { -webkit-line-clamp: 4; }
+      .riddle-story { -webkit-line-clamp: 4; }
+
+      .matrix { display: grid; grid-template-columns: .72fr 1fr 1fr; margin-top: 15px; }
+      .matrix > div { padding: 8px 6px; font-size: 9px; line-height: 1.28; }
+      .matrix .head { display: block; font-size: 9px; }
+      .model-footnote { display: block; margin-top: 7px; font-size: 9px; }
+      .alert { display: flex; gap: 7px; margin-top: 8px; padding: 9px 10px; font-size: 10px; }
+      .alert strong { margin-bottom: 2px; font-size: 10px; }
+      .alert p { font-size: 10px; line-height: 1.3; }
+      .mobile-models { display: none; }
+
+      .mobile-context-flow { display: none; }
+      .maturity { display: grid; grid-template-columns: 1fr; gap: 7px; margin-top: 15px; }
+      .maturity-arrow { display: none; }
+      .maturity-card { min-height: 0; padding: 11px; }
+      .maturity-card h3 { margin-bottom: 5px; font-size: 14px; }
+      .maturity-card .micro-label { font-size: 10px; }
+      .maturity-card p { margin-top: 5px; font-size: 10px; line-height: 1.3; }
+      .maturity-card ul { margin: 7px 0 0; padding-right: 16px; font-size: 10px; line-height: 1.35; }
+      .context-stack { display: grid; grid-template-columns: repeat(4, 1fr); gap: 5px; margin-top: 8px; }
+      .context-source { padding: 7px 4px; font-size: 9px; }
+      .context-source span { font-size: 15px; }
+
+      .mcp-security { display: block; margin-top: 8px; font-size: 10px; }
+      .primitive-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 5px; margin-top: 8px; }
+      .primitive { padding: 8px 5px; text-align: center; }
+      .primitive strong { margin-bottom: 3px; font-size: 10px; text-align: center; }
+      .primitive span { display: block; font-size: 9px; line-height: 1.25; }
+      .mcp-callout { display: -webkit-box; margin-top: 8px; padding: 9px 10px; font-size: 10px; line-height: 1.3; -webkit-box-orient: vertical; -webkit-line-clamp: 3; overflow: hidden; }
+    }
+
+    @media screen and (max-width: 600px) and (orientation: landscape) {
+      .maturity { grid-template-columns: 1fr 1fr; gap: 8px; }
+      .maturity-card { padding: 8px; }
+      .maturity-card ul { display: none; }
+      .context-stack { margin-top: 6px; }
+      .primitive-row { display: none; }
+      .mcp-callout { max-height: 32px; margin-top: 5px; -webkit-line-clamp: 2; }
+    }
+
     @media print {
       body { background: white; }
       .app { padding: 0; display: block; }
@@ -899,9 +946,9 @@
           <div class="meter-card"><div class="meter-title">לפני: כל הכלים נחשפים</div><div class="meter"><div class="meter-fill"></div></div><div class="meter-values"><span>0</span><span>32k+ tokens</span></div><p>שרת MCP כבד עלול לזרוק למודל אלפי אסימונים של הגדרות לכלים לא נחוצים — עוד לפני השאלה הראשונה.</p><div class="solution"><b>אחרי: Skill כנתב</b> טוענים רק את קבוצת הכלים הנדרשת למשימה.</div></div>
         </div>
         <div class="mobile-summary mobile-overhead-summary" aria-label="השוואת שכבות וכלים">
-          <div class="mobile-layer-card cli"><b>CLI</b><span>גישה ישירה ומהירה</span></div>
-          <div class="mobile-layer-card mcp"><b>MCP</b><span>חיבור והרשאות</span></div>
-          <div class="mobile-layer-card skill"><b>Skills</b><span>ניתוב חכם לכלים הרלוונטיים</span></div>
+          <div class="mobile-layer-card cli"><b>CLI</b><span>גישה ישירה ומהירה, עם הרשאות משלימות</span></div>
+          <div class="mobile-layer-card mcp"><b>MCP</b><span>חיבור וכלים; חשיפה רחבה יוצרת Token Bloat</span></div>
+          <div class="mobile-layer-card skill"><b>Skills</b><span>ניתוב חכם שחושף רק כלים רלוונטיים</span></div>
           <div class="mobile-token-note"><b>Token Bloat ↓</b><span>טוענים רק את הכלים הדרושים למשימה.</span></div>
         </div>
       </article>
