@@ -116,6 +116,8 @@
       background: white;
     }
     .slide.active { display: block; animation: enter .28s ease both; }
+    .deck-shell > .slide:not(.active) { display: none !important; }
+    .deck-shell > .slide.active { display: block !important; }
     @keyframes enter { from { opacity: .2; transform: translateY(6px); } to { opacity: 1; transform: translateY(0); } }
     .slide::before {
       content: attr(data-num);
@@ -747,7 +749,10 @@
     const notesToggle = document.getElementById('notesToggle');
 
     function render() {
-      slides.forEach((slide, i) => slide.classList.toggle('active', i === index));
+      slides.forEach((slide, i) => {
+        slide.classList.remove('active');
+        if (i === index) slide.classList.add('active');
+      });
       const number = String(index + 1).padStart(2, '0');
       counter.textContent = `${number} / ${String(slides.length).padStart(2, '0')}`;
       progressBar.style.width = `${((index + 1) / slides.length) * 100}%`;
