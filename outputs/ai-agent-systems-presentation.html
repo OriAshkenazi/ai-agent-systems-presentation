@@ -318,10 +318,11 @@
     .matrix .rowhead { color: #64748b; font-weight: 700; background: #fbfdff; }
     .matrix .reasoning { background: var(--purple-50); color: var(--purple-800); }
     .matrix .chat { color: #475569; }
-    .model-examples { margin-top: 18px; display: flex; align-items: center; flex-wrap: wrap; gap: 8px; }
-    .model-examples strong { color: #475569; font-size: 12px; }
-    .model-chip { padding: 6px 9px; border-radius: 999px; background: var(--purple-50); border: 1px solid var(--purple-200); color: var(--purple-800); font-size: 12px; font-weight: 800; direction: ltr; white-space: nowrap; }
-    .model-footnote { margin-top: 9px; color: #94a3b8; font-size: 11px; }
+    .slide6-matrix { margin-top: 18px; }
+    .slide6-matrix > div { padding: 11px 13px; font-size: 12px; line-height: 1.32; }
+    .model-footnote { margin-top: 7px; color: #94a3b8; font-size: 11px; }
+    .slide6-alert { margin-top: 12px; padding: 11px 14px; }
+    .slide6-alert p { font-size: 12px; }
     .alert { margin-top: 18px; display: flex; gap: 12px; align-items: flex-start; padding: 14px 16px; border-radius: 13px; background: #fff7ed; border: 1px solid #fed7aa; color: #9a3412; }
     .alert strong { display: block; margin-bottom: 4px; }
     .alert p { color: #9a3412; font-size: 13px; line-height: 1.45; }
@@ -698,11 +699,9 @@
       .riddle-story { -webkit-line-clamp: 4; }
 
       .matrix { display: grid; grid-template-columns: .72fr 1fr 1fr; margin-top: 15px; }
+      .slide6-matrix { margin-top: 15px; }
       .matrix > div { padding: 8px 6px; font-size: 9px; line-height: 1.28; }
       .matrix .head { display: block; font-size: 9px; }
-      .model-examples { margin-top: 12px; gap: 5px; }
-      .model-examples strong { width: 100%; font-size: 11px; }
-      .model-chip { padding: 5px 7px; font-size: 10px; }
       .model-footnote { display: block; margin-top: 7px; font-size: 9px; }
       .alert { display: flex; gap: 7px; margin-top: 8px; padding: 9px 10px; font-size: 10px; }
       .alert strong { margin-bottom: 2px; font-size: 10px; }
@@ -918,25 +917,18 @@
         <div class="eyebrow">קפיצת המדרגה</div>
         <h2>עידן מודלי החשיבה</h2>
         <p class="lede">הבדל אחד משנה את כללי המשחק: יותר זמן חישוב לפני התשובה.</p>
-        <div class="model-examples" aria-label="דוגמאות עדכניות למודלי חשיבה">
-          <strong>דוגמאות עדכניות:</strong>
-          <span class="model-chip">GPT-5.5</span>
-          <span class="model-chip">Claude Opus 4.8</span>
-          <span class="model-chip">Gemini 3.1 Pro</span>
-          <span class="model-chip">DeepSeek V4-Pro</span>
-        </div>
-        <div class="matrix">
+        <div class="matrix slide6-matrix">
           <div class="head">תכונה</div><div class="head chat">מודל צ׳אט מסורתי</div><div class="head reasoning">מודל חשיבה</div>
-          <div class="rowhead">דוגמאות</div><div class="chat">מודלי עבודה מהירים — ללא תקציב חשיבה ייעודי.</div><div class="reasoning"><span class="ltr">GPT-5.5 · Claude Opus 4.8 · Gemini 3.1 Pro · DeepSeek V4-Pro</span></div>
+          <div class="rowhead">דוגמאות</div><div class="chat">מודלי עבודה מהירים — ללא תקציב חשיבה ייעודי.</div><div class="reasoning"><span class="ltr">GPT-5.6 Sol · Claude Fable 5 · Gemini 3.6 Flash · DeepSeek-V4-Pro</span></div>
           <div class="rowhead">יצירת תשובה</div><div class="chat">תגובה מהירה על בסיס חיזוי רציף.</div><div class="reasoning">השהיה ותקציב חשיבה פנימי לפני הפלט.</div>
           <div class="rowhead">חוזקות</div><div class="chat">כתיבה, תרגום, סיכום, תבניות.</div><div class="reasoning">לוגיקה, מתמטיקה, קוד ותכנון רב־שלבי.</div>
           <div class="rowhead">תגובה לפרומפט</div><div class="chat">מרוויח מפירוט, דוגמאות ופיגומים.</div><div class="reasoning">עלול להיפגע מהוראות חשיבה חיצוניות.</div>
         </div>
         <p class="model-footnote">נבדק בתיעוד הספקים ב־11.08.2026; חלק מהדגמים ב־Preview ושמות/ממשקים משתנים.</p>
-        <div class="alert"><span class="icon">!</span><div><strong>היפוך פרומפטים</strong><p>בקשה כמו “חשוב בקול שלב־אחר־שלב” או פיגומים קשיחים עלולה להתנגש עם מנגנון החשיבה הפנימי של מודלי Reasoning.</p></div></div>
+        <div class="alert slide6-alert"><span class="icon">!</span><div><strong>היפוך פרומפטים</strong><p>בקשה כמו “חשוב בקול שלב־אחר־שלב” או פיגומים קשיחים עלולה להתנגש עם מנגנון החשיבה הפנימי של מודלי Reasoning.</p></div></div>
         <div class="mobile-summary mobile-models" aria-label="השוואה בין מודלי צ׳אט למודלי חשיבה">
           <div class="mobile-compare-card chat"><strong>מודלי צ׳אט</strong><span>מהירים: כתיבה, תרגום וסיכום</span></div>
-          <div class="mobile-compare-card reasoning"><strong>מודלי חשיבה</strong><span class="ltr">GPT-5.5 · Claude Opus 4.8 · Gemini 3.1 Pro · DeepSeek V4-Pro</span><small>תכנון, לוגיקה וקוד רב־שלבי</small></div>
+          <div class="mobile-compare-card reasoning"><strong>מודלי חשיבה</strong><span>תכנון, לוגיקה וקוד רב־שלבי</span></div>
           <div class="mobile-inline-alert"><b>כלל חדש:</b> ניסוח ישיר; בלי “חשוב בקול”.</div>
         </div>
       </article>
@@ -1101,7 +1093,7 @@
       `סיימו בארבעת עמודי התווך: Context, Role, Method, Format. המטרה אינה להפוך כל עובד למהנדס תוכנה, אלא לתת לו שליטה על הסביבה, רמת האוטונומיה ואיכות התוצר.`,
     ];
     notes[2] = `בקטע שמתחיל ב־33:31 המרצה משתמש בחידת המנתח כדי להראות את ההבדל בין תשובה שנשלפת מדפוס מוכר לבין הכללה אמיתית. בגרסה הקלאסית המודל עונה נכון שהמנתחת היא האם, מפני שהחידה הופיעה באימון פעמים רבות. כאשר מחליפים את ההורה שנהרג ומציינים שהמנתח הוא האב, המודל עדיין נצמד לתשובה הישנה. זו אינה חולשה מוחלטת, אלא חתימה של אופן האימון: המודל רגיש מאוד לדפוסים נפוצים ולשינויים קטנים בניסוח.`;
-    notes[5] = `הדוגמאות בשקף עודכנו לפי תיעוד הספקים ל־11.08.2026: GPT-5.5, Claude Opus 4.8, Gemini 3.1 Pro ו־DeepSeek V4-Pro. יש להציג אותן כדוגמאות תלויות־תאריך, משום שחלק מהדגמים ב־Preview ושמות מודלים וממשקים משתנים. המסר החשוב נשאר: מודלי Reasoning מקצים זמן חישוב לפני הפלט, ולכן הוראות כמו “חשוב בקול שלב־אחר־שלב” עלולות להתנגש עם מנגנון החשיבה הפנימי שלהם.`;
+      notes[5] = `הדוגמאות בשקף עודכנו לפי תיעוד הספקים ל־11.08.2026: GPT-5.6 Sol, Claude Fable 5, Gemini 3.6 Flash ו־DeepSeek-V4-Pro. הדוגמאות נשארות בתוך הטבלה כדי לשמור על היררכיה נקייה, ויש להציג אותן כדוגמאות תלויות־תאריך משום ששמות מודלים וממשקים משתנים. המסר החשוב נשאר: מודלי Reasoning מקצים זמן חישוב לפני הפלט, ולכן הוראות כמו “חשוב בקול שלב־אחר־שלב” עלולות להתנגש עם מנגנון החשיבה הפנימי שלהם.`;
     notes[11] = `חברו את הסיום ישירות לשקף 5: עבר הוא ההקשר שממנו יוצאים, הווה הוא המשימה שעל הסוכן לבצע, ועתיד הוא הפורמט שבו התוצר צריך להגיע. יחד עם ארבעת העמודים Context, Role, Method, Format, זו מסגרת פשוטה שמאפשרת לכוון מערכת מורכבת בלי להפוך כל עובד למהנדס תוכנה.`;
     let index = 0;
     const counter = document.getElementById('counter');
