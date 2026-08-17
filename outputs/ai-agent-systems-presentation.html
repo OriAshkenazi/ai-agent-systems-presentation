@@ -229,21 +229,23 @@
     .section-label { margin-top: 26px; font-size: 12px; color: #94a3b8; font-weight: 700; letter-spacing: .05em; }
 
     /* Slide 2 */
-    .vocab-grid { margin-top: 28px; display: grid; grid-template-columns: repeat(5, 1fr); gap: 12px; }
-    .vocab { padding: 15px 13px; min-height: 205px; border-top: 4px solid; border-radius: 13px; background: #fff; box-shadow: 0 7px 18px rgba(15,23,42,.06); }
-    .vocab h3 { font-size: 17px; color: #1e293b; margin-bottom: 10px; direction: ltr; text-align: left; }
-    .vocab strong { display: block; font-size: 14px; margin-bottom: 7px; }
-    .vocab p { font-size: 12px; color: #64748b; line-height: 1.55; }
+    .vocab-grid { margin-top: 28px; display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 10px; }
+    .vocab { padding: 14px 10px; min-height: 205px; border-top: 4px solid; border-radius: 13px; background: #fff; box-shadow: 0 7px 18px rgba(15,23,42,.06); }
+    .vocab h3 { font-size: 16px; color: #1e293b; margin-bottom: 10px; direction: ltr; text-align: left; }
+    .vocab strong { display: block; font-size: 13px; margin-bottom: 7px; }
+    .vocab p { font-size: 11px; color: #64748b; line-height: 1.5; }
     .vocab.blue { border-color: var(--blue-500); background: linear-gradient(180deg, var(--blue-50), white); }
     .vocab.green { border-color: var(--green-500); background: linear-gradient(180deg, var(--green-50), white); }
     .vocab.purple { border-color: var(--purple-500); background: linear-gradient(180deg, var(--purple-50), white); }
     .vocab.yellow { border-color: var(--yellow-500); background: linear-gradient(180deg, var(--yellow-50), white); }
+    .vocab.indigo { border-color: #6366f1; background: linear-gradient(180deg, #eef2ff, white); }
     .vocab .micro { margin-top: 14px; font-size: 11px; color: #94a3b8; }
-    .layer-bar { margin-top: 28px; display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px; align-items: stretch; }
+    .layer-bar { margin-top: 28px; display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; align-items: stretch; }
     .layer { padding: 12px; text-align: center; border-radius: 12px; font-size: 12px; font-weight: 700; }
     .layer.blue { background: var(--blue-100); color: var(--blue-800); }
     .layer.purple { background: var(--purple-100); color: var(--purple-800); }
     .layer.green { background: var(--green-100); color: var(--green-800); }
+    .layer.indigo { background: #e0e7ff; color: #3730a3; }
 
     /* Slide 3 */
     .riddle-intro { margin-top: 16px; color: #475569; font-size: 14px; line-height: 1.55; }
@@ -538,8 +540,7 @@
       .vocab h3 { font-size: 14px; margin-bottom: 4px; }
       .vocab strong { font-size: 12px; margin-bottom: 0; }
       .vocab p, .vocab .micro { display: none; }
-      .vocab:nth-child(5) { grid-column: 1 / -1; }
-      .layer-bar { margin-top: 10px; gap: 6px; }
+      .layer-bar { margin-top: 10px; grid-template-columns: repeat(2, 1fr); gap: 6px; }
       .layer { padding: 8px 5px; font-size: 10px; }
 
       .two-col, .two-col.reverse { height: auto; grid-template-columns: 1fr; gap: 11px; align-items: start; }
@@ -847,15 +848,16 @@
       <article class="slide" data-num="02 / 12" data-title="מילון מושגים">
         <div class="eyebrow">יישור קו</div>
         <h2>המילון המודרני של ה־AI</h2>
-        <p class="lede">חמש שכבות. תפקידים שונים. מערכת אחת שמחברת מוח, התנהגות וגישה לעולם.</p>
+        <p class="lede">שישה מושגים. תפקידים שונים. מערכת אחת שמחברת מוח, התנהגות וגישה לעולם.</p>
         <div class="vocab-grid">
           <div class="vocab blue"><h3>LLM</h3><strong>המוח</strong><p>רשת עצבית שאומנה על כמויות עצומות של נתונים כדי להבין, להסיק ולייצר שפה.</p><div class="micro">מנוע הסקה</div></div>
           <div class="vocab green"><h3>Agent</h3><strong>הסוכן</strong><p>מערכת המשתמשת ב־LLM כדי לתכנן, לפרק בעיות ולהפעיל פעולות רב־שלביות.</p><div class="micro">מנהל המשימה</div></div>
+          <div class="vocab indigo"><h3>Harness</h3><strong>מסגרת הפעלה</strong><p>סביבת ההרצה שמנהלת את לולאת הסוכן ומחברת בין המודל, ההקשר, הכלים, ה־Skills, ההרשאות ואישורי האדם.</p><div class="micro"><span class="ltr">runtime · orchestration</span></div></div>
           <div class="vocab yellow"><h3>Tool</h3><strong>הידיים</strong><p>פונקציה או API שקוראים או כותבים מידע בעולם האמיתי.</p><div class="micro">SQL · קבצים · CRM</div></div>
           <div class="vocab purple"><h3>Skill</h3><strong>ספר ההפעלה</strong><p>קובץ הוראות שמעניק לסוכן מומחיות, תהליך עבודה וגבולות גזרה.</p><div class="micro"><span class="ltr">SKILL.md</span></div></div>
           <div class="vocab blue"><h3>MCP</h3><strong>הכבל</strong><p>פרוטוקול פתוח שמחבר מודלים למקורות נתונים וכלים באופן סטנדרטי.</p><div class="micro">Model Context Protocol</div></div>
         </div>
-        <div class="layer-bar"><div class="layer blue">LLM · מוח</div><div class="layer purple">Skills · התנהגות</div><div class="layer green">MCP Tools · פעולה</div></div>
+        <div class="layer-bar"><div class="layer blue">LLM · מוח</div><div class="layer indigo">Harness · תזמור</div><div class="layer purple">Skills · התנהגות</div><div class="layer green">MCP Tools · פעולה</div></div>
       </article>
 
       <!-- 3 -->
@@ -1092,6 +1094,7 @@
       `MCP הוא שכבת חיבור חזקה, אך כל סכמת כלי נוספת היא טקסט שהמודל צריך לעבד. Skills פועלים כנתבים ומצמצמים את החשיפה לכלים הרלוונטיים. התוצאה: פחות עלות, פחות רעש ופחות הזדמנויות לטעות.`,
       `סיימו בארבעת עמודי התווך: Context, Role, Method, Format. המטרה אינה להפוך כל עובד למהנדס תוכנה, אלא לתת לו שליטה על הסביבה, רמת האוטונומיה ואיכות התוצר.`,
     ];
+    notes[1] = `Harness הוא מסגרת ההפעלה של הסוכן: סביבת ההרצה שמנהלת את לולאת העבודה ומחברת בין המודל, ההקשר, הכלים, ה־Skills, ההרשאות ואישורי האדם. חשוב להבחין בינו לבין Tool או Skill: ה־Tool מבצע פעולה, ה־Skill מגדיר מומחיות ותהליך, וה־Harness מתזמר את הכול בזמן הריצה.`;
     notes[2] = `בקטע שמתחיל ב־33:31 המרצה משתמש בחידת המנתח כדי להראות את ההבדל בין תשובה שנשלפת מדפוס מוכר לבין הכללה אמיתית. בגרסה הקלאסית המודל עונה נכון שהמנתחת היא האם, מפני שהחידה הופיעה באימון פעמים רבות. כאשר מחליפים את ההורה שנהרג ומציינים שהמנתח הוא האב, המודל עדיין נצמד לתשובה הישנה. זו אינה חולשה מוחלטת, אלא חתימה של אופן האימון: המודל רגיש מאוד לדפוסים נפוצים ולשינויים קטנים בניסוח.`;
       notes[5] = `הדוגמאות בשקף עודכנו לפי תיעוד הספקים ל־11.08.2026: GPT-5.6 Sol, Claude Fable 5, Gemini 3.6 Flash ו־DeepSeek-V4-Pro. הדוגמאות נשארות בתוך הטבלה כדי לשמור על היררכיה נקייה, ויש להציג אותן כדוגמאות תלויות־תאריך משום ששמות מודלים וממשקים משתנים. המסר החשוב נשאר: מודלי Reasoning מקצים זמן חישוב לפני הפלט, ולכן הוראות כמו “חשוב בקול שלב־אחר־שלב” עלולות להתנגש עם מנגנון החשיבה הפנימי שלהם.`;
     notes[11] = `חברו את הסיום ישירות לשקף 5: עבר הוא ההקשר שממנו יוצאים, הווה הוא המשימה שעל הסוכן לבצע, ועתיד הוא הפורמט שבו התוצר צריך להגיע. יחד עם ארבעת העמודים Context, Role, Method, Format, זו מסגרת פשוטה שמאפשרת לכוון מערכת מורכבת בלי להפוך כל עובד למהנדס תוכנה.`;
